@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-sm: 36rem;
+  --breakpoint-lg: 62rem;
+  --breakpoint-xl: 75rem;
+  --font-sans:
+    Quicksand, system-ui, BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  --color-black: #111;
+  --color-second: #ff7e67;
+  --tracking-extra: 0.2em;
+  --animate-slide-in: slide-in 0.2s;
+
+  @keyframes slide-in {
+    from {
+      transform: translateX(-3rem);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+}
+
+@layer base {
+  html {
+    line-height: 1.15;
+  }
+
+  a {
+    @apply text-second no-underline;
+  }
+}

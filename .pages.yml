@@ -1,0 +1,44 @@
+media:
+  input: public/images/projects
+  output: /images/projects
+  categories: [image]
+
+content:
+  - name: projects
+    label: Projects
+    type: collection
+    path: content/projects
+    filename:
+      template: "{primary}.md"
+      field: create
+    view:
+      fields: [thumbnail, title, release_date]
+      primary: title
+      sort: [release_date, title]
+      default:
+        sort: release_date
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: release_date
+        label: Release date
+        type: date
+        required: true
+      - name: thumbnail
+        label: Thumbnail
+        type: image
+        required: true
+      - name: video_link
+        label: Video link
+        description: A Vimeo or YouTube URL, e.g. https://vimeo.com/123456789
+        type: string
+        required: true
+        pattern:
+          regex: "^https://(www\\.)?(vimeo\\.com/[0-9]+|youtube\\.com/watch\\?v=[\\w-]+|youtu\\.be/[\\w-]+)"
+          message: Use a Vimeo or YouTube URL.
+      - name: body
+        label: Description
+        type: rich-text
